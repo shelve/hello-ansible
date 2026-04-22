@@ -1,5 +1,8 @@
 ---
 plugin: hashicorp.terraform.inventory
+collections:
+  - hashicorp.terraform
+  
 source: outputs
 
 organization: prab-sandbox02
