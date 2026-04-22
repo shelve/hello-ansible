@@ -1,0 +1,25 @@
+---
+plugin: hashicorp.terraform.inventory
+source: outputs
+
+organization: prab-sandbox02
+workspace: test-ec2-create
+
+#tfe_address: https://terraform.example.com
+
+# ec2_hosts_dict = list(object) = [
+#   {name="web-1", public_ip="1.2.3.4", private_ip="10.0.0.1", instance_id="i-abc"},
+#   {name="web-2", public_ip="5.6.7.8", private_ip="10.0.0.2", instance_id="i-def"},
+# ]
+hosts_from:
+  output: ec2_hosts_dict
+  kind: list
+  element_type: object
+
+hostnames:
+  - name
+  - instance_id
+
+compose:
+  ansible_host: public_ip
+  ansible_user: '"ec2-user"'
