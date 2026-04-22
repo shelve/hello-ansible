@@ -2,3 +2,4 @@
 ---
 collections:
   - name: hashicorp.terraform
+    version: "2.0.0"
